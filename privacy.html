@@ -1,71 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - HEIFree</title>
+    <title>Privacy Policy — HEIFree</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root { --bg: #0C0C0B; --bg-card: #161615; --text: #EDEDE8; --text-secondary: #8A8A85; --accent: #9461E8; --radius: 16px; --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        [data-theme="light"] { --bg: #F5F2ED; --bg-card: #FFFFFF; --text: #0C0C0B; --text-secondary: #6B6B65; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #333; background: #fafafe; line-height: 1.7; }
-        .header { background: linear-gradient(135deg, #7C43D4, #B087F5); color: white; padding: 40px 20px; text-align: center; }
-        .header h1 { font-size: 32px; }
-        .header p { opacity: 0.8; margin-top: 8px; }
-        .content { max-width: 700px; margin: 40px auto; padding: 0 20px 60px; }
-        h2 { font-size: 22px; margin: 32px 0 12px; color: #1a1a2e; }
-        p, li { font-size: 16px; margin-bottom: 12px; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); transition: background var(--transition), color var(--transition); }
+        body::after { content: ''; position: fixed; inset: 0; pointer-events: none; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); z-index: 9999; }
+        nav { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 100; display: flex; align-items: center; gap: 32px; padding: 14px 28px; background: rgba(12,12,11,0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 60px; }
+        [data-theme="light"] nav { background: rgba(255,255,255,0.7); border-color: rgba(0,0,0,0.06); }
+        nav .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.03em; text-decoration: none; color: var(--text); }
+        .theme-toggle { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); border: none; color: var(--text); font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+        [data-theme="light"] .theme-toggle { background: rgba(0,0,0,0.06); }
+        .theme-toggle:hover { background: var(--accent); color: white; }
+        .page-header { padding: 140px 24px 60px; text-align: center; }
+        .page-header h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(32px, 5vw, 48px); letter-spacing: -0.03em; }
+        .page-header .date { color: var(--text-secondary); font-size: 14px; margin-top: 8px; }
+        .content { max-width: 700px; margin: 0 auto; padding: 0 24px 80px; }
+        h2 { font-size: 20px; font-weight: 700; margin: 40px 0 12px; }
+        p, li { font-size: 15px; line-height: 1.7; margin-bottom: 12px; color: var(--text-secondary); }
         ul { padding-left: 24px; }
-        .back { display: inline-block; margin-top: 32px; color: #7C43D4; text-decoration: none; }
+        strong { color: var(--text); }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .back { display: inline-flex; align-items: center; gap: 6px; margin-top: 40px; font-weight: 600; font-size: 15px; }
     </style>
 </head>
 <body>
-    <div class="header">
+    <nav>
+        <a href="/" class="logo">HEIFree</a>
+        <button class="theme-toggle" onclick="toggleTheme()">◐</button>
+    </nav>
+
+    <div class="page-header">
         <h1>Privacy Policy</h1>
-        <p>Last updated: April 14, 2026</p>
+        <p class="date">Last updated: April 14, 2026</p>
     </div>
     <div class="content">
         <h2>Overview</h2>
-        <p>HEIFree ("the App") is designed with privacy as a core principle. All photo and video processing happens entirely on your device. We do not collect, store, or transmit your photos, videos, or personal data to any server.</p>
+        <p>HEIFree is designed with privacy as a core principle. All photo and video processing happens entirely on your device. We do not collect, store, or transmit your photos, videos, or personal data to any server.</p>
 
         <h2>Data We Do NOT Collect</h2>
         <ul>
-            <li><strong>Photos and Videos:</strong> All scanning, conversion, and optimization happens locally on your device. Your media never leaves your phone.</li>
-            <li><strong>Personal Information:</strong> We do not collect your name, email, phone number, or any personally identifiable information.</li>
-            <li><strong>Usage Analytics:</strong> We do not use any analytics or tracking SDKs.</li>
-            <li><strong>Location Data:</strong> We do not access or collect your location.</li>
+            <li><strong>Photos and Videos:</strong> All processing happens locally. Your media never leaves your phone.</li>
+            <li><strong>Personal Information:</strong> No name, email, phone number, or personally identifiable information.</li>
+            <li><strong>Usage Analytics:</strong> No analytics or tracking SDKs.</li>
+            <li><strong>Location Data:</strong> We do not access your location.</li>
         </ul>
 
         <h2>Data Stored on Your Device</h2>
-        <p>The App stores the following data locally on your device:</p>
+        <p>The App stores locally:</p>
         <ul>
-            <li><strong>Conversion History:</strong> Records of which photos/videos have been optimized, stored as JSON files in the App's sandbox.</li>
-            <li><strong>Settings:</strong> Your preferences (quality, skip rules, language, appearance) stored in UserDefaults.</li>
-            <li><strong>Quota Count:</strong> The number of free conversions used, stored in the iOS Keychain.</li>
-            <li><strong>Format Cache:</strong> A cache of detected photo formats to speed up subsequent scans.</li>
+            <li><strong>Conversion History:</strong> Records of optimized media, stored as JSON files in the App's sandbox.</li>
+            <li><strong>Settings:</strong> Preferences stored in UserDefaults.</li>
+            <li><strong>Quota Count:</strong> Free conversion count stored in the iOS Keychain.</li>
+            <li><strong>Format Cache:</strong> Detected photo formats to speed up scans.</li>
         </ul>
-        <p>This data is not accessible to other apps and is deleted when you uninstall the App (except Keychain data, which persists per Apple's standard behavior).</p>
+        <p>This data is not accessible to other apps and is deleted when you uninstall (except Keychain data, per Apple's standard behavior).</p>
 
         <h2>In-App Purchases</h2>
-        <p>The App uses <a href="https://www.revenuecat.com/privacy" style="color:#7C43D4">RevenueCat</a> to manage in-app purchases. RevenueCat may collect:</p>
-        <ul>
-            <li>An anonymous user identifier (not linked to your Apple ID or personal identity)</li>
-            <li>Purchase transaction data (processed through Apple's App Store)</li>
-            <li>Device type and OS version (for compatibility purposes)</li>
-        </ul>
-        <p>RevenueCat does not have access to your photos, videos, or any content on your device. For more information, see <a href="https://www.revenuecat.com/privacy" style="color:#7C43D4">RevenueCat's Privacy Policy</a>.</p>
+        <p>We use <a href="https://www.revenuecat.com/privacy">RevenueCat</a> to manage purchases. RevenueCat may collect an anonymous user identifier, purchase transaction data (via Apple's App Store), and device type/OS version. RevenueCat has no access to your photos or videos.</p>
 
         <h2>Photo Library Access</h2>
-        <p>The App requires access to your Photo Library to scan and optimize your photos and videos. This access is used solely for the App's core functionality. We do not upload, share, or transmit any of your media.</p>
+        <p>The App requires Photo Library access solely to scan and optimize your media. We do not upload, share, or transmit any of your content.</p>
 
         <h2>Children's Privacy</h2>
-        <p>The App is not directed at children under 13. We do not knowingly collect any information from children.</p>
+        <p>The App is not directed at children under 13. We do not knowingly collect information from children.</p>
 
-        <h2>Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated date.</p>
+        <h2>Changes</h2>
+        <p>We may update this policy. Changes will be posted here with an updated date.</p>
 
         <h2>Contact</h2>
-        <p>If you have questions about this Privacy Policy, please contact us at: <a href="mailto:privacy@heifree.app" style="color:#7C43D4">privacy@heifree.app</a></p>
+        <p>Questions? Email <a href="mailto:privacy@heifree.app">privacy@heifree.app</a></p>
 
         <a href="/" class="back">← Back to HEIFree</a>
     </div>
+
+    <script>
+        function toggleTheme() { const h = document.documentElement; const n = h.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; h.setAttribute('data-theme', n); localStorage.setItem('theme', n); document.querySelector('.theme-toggle').textContent = n === 'dark' ? '◐' : '◑'; }
+        const s = localStorage.getItem('theme'); if (s) { document.documentElement.setAttribute('data-theme', s); if (s === 'light') document.querySelector('.theme-toggle').textContent = '◑'; }
+    </script>
 </body>
 </html>
